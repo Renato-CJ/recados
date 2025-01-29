@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Site de Recados</title>
+    <link rel="stylesheet" href="css/styles.css">
+</head>
+<body>
+    <div id="app">
+        <h1>Quadro de Recados</h1>
+        <div id="login">
+            <h2>Login</h2>
+            <input type="text" id="email" placeholder="E-mail">
+            <input type="password" id="senha" placeholder="Senha">
+            <button onclick="logar()">Entrar</button>
+        </div>
+        <div id="recados" style="display: none;">
+            <h2>Recados</h2>
+            <button onclick="sair()">Sair</button>
+            <ul id="lista-recados"></ul>
+        </div>
+    </div>
+    <script src="js/scripts.js"></script>
+</body>
+</html>
