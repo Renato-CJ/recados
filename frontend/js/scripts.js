@@ -44,3 +44,33 @@ function carregarRecados() {
             alert('Erro ao carregar recados!');
         });
 }
+
+// novo
+
+function adicionarRecado() {
+    const token = localStorage.getItem('token');
+    const conteudo = prompt("Digite o seu recado:");
+
+    if (!conteudo) {
+        alert("Recado não pode ser vazio!");
+        return;
+    }
+
+    fetch('http://localhost:3000/recados/criar', {
+        method: 'POST',
+        headers: { 
+            'Content-Type': 'application/json',
+            'Authorization': `Bearer ${token}`
+        },
+        body: JSON.stringify({ conteudo, usuario_id: 1 }) // Alterar conforme o usuário logado
+    })
+    .then(res => res.json())
+    .then(data => {
+        if (data.message) {
+            alert("Recado adicionado com sucesso!");
+            carregarRecados();
+        } else {
+            alert("Erro ao adicionar recado!");
+        }
+    });
+}
